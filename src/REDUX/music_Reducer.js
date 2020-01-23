@@ -8,7 +8,9 @@ let initialState = {
   lyrics:null,
   music:null,
   file: null,
-  musicFile:undefined
+  musicFile:undefined,
+  countWinsUser:null,
+  countWinsProgram:null,
 }
   const musicReducer = ( state = initialState, action) => {
   switch (action.type) {
@@ -34,12 +36,7 @@ export let setLyricsData = (lyrics) => {
     lyrics
   }
 }
-export let setFileData = (musicFile) => {
-  return {
-    type: SET_MUSIC_FILE,
-    musicFile
-  }
-}
+
 export let getMusicData  = (music) => {
   return {
     type: GET_MUSIC_DATA,
@@ -63,7 +60,6 @@ export let getMusicFile  = (musicFile) => {
 }
 export const saveFile = (file) =>  async (dispatch) => {
    let data = await soundAPI.saveFile(file);
-   dispatch(setFileData(file));
    dispatch(getMusicFile(data.result));
  }
 

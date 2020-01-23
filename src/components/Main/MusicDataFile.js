@@ -7,15 +7,19 @@ import AudioPlayer from "react-h5-audio-player";
 class MusicDataFile extends  React.Component   {
   constructor(props) {
     super(props);
+
   }
   state = {
       value:0
   }
   /*a = this.props.music[this.state.value].media;
      newArr = JSON.parse(this.a);*/
-
+ deezer = this.props.musicData.deezer;
   showOtherComponent = () => {
-    console.log(this.props.musicData[1]);
+     console.log(this.props.musicData.deezer);
+
+
+
     if (this.state.value <=5) {
       this.setState({
         value: this.state.value + 1
@@ -34,7 +38,7 @@ class MusicDataFile extends  React.Component   {
     <div className={m.container}>
         <div className={m.media}>
          <div className={m.media_img}>
-            <img src="media/preview.jpg" alt="Song image" />
+            <img src={this.deezer.artist.picture_medium} alt="Song image" />
           </div>
             <div className={m.media_container}>
             <div className={m.media_item1}>
@@ -52,11 +56,11 @@ class MusicDataFile extends  React.Component   {
             <h1>{this.props.musicData.title} - Single</h1>
             <h3>{this.props.musicData.artist}</h3>
             <small>{this.props.musicData.album}</small><br/>
-            <a href='#'> {this.props.musicData.apple_music}Listen on Apple Music <i className={m.fas}></i></a>
+
+            <a href={this.deezer.artist.link}>Listen on Apple Music<i className={m.fas}></i></a>
             <div class={m.contant_song}>
             <AudioPlayer
-              autoPlay
-              src={this.props.deezer}
+                src={this.deezer.preview}
               onPlay={e => console.log("onPlay")}
               // other props here
             />
@@ -66,8 +70,10 @@ class MusicDataFile extends  React.Component   {
                 &copy; {this.props.musicData.label}<br></br>
                 <div>
                   <span id="span">Also Available in iTunes</span>
-
-                  <button  className={m.content_button} onClick={this.showOtherComponent} > </button>
+                <div className={m.button_container}>
+                  <button  className={m.content_button} onClick={this.showOtherComponent} >Yes </button>
+                  <button  className={m.content_button} onClick={this.showOtherComponent} >No </button>
+                </div>
                 </div>
 
             </div>

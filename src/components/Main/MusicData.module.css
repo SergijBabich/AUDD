@@ -22,8 +22,10 @@
 	flex: 30%;
 }
 .media_img {
-  height: 200px;
-  max-width: 100px;
+      max-height: 100%;
+      max-width: 100%;
+      width: auto;
+      height: auto;
 }
 .container .media img {
 	border-radius: 5px;
@@ -134,4 +136,9 @@
 .content_button {
   width: 30px;
   height: 30px;
+}
+.button_container {
+  width: 100%;
+  height: 50px;
+
 }
