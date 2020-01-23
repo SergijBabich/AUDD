@@ -18,3 +18,14 @@
     }
   }
 }
+
+.container {
+  max-width: 1300px;
+  width: 100%;
+  height: auto;
+  margin: auto;
+}
+.container__button {
+  width: 30px;
+  height: 30px;
+}

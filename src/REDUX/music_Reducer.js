@@ -7,11 +7,12 @@ const SET_MUSIC_FILE = 'SET-MUSIC-FILE';
 let initialState = {
   lyrics:null,
   music:null,
-  file: null
+  file: null,
+  musicFile:undefined
 }
-
-const musicReducer = ( state = initialState, action) => {
+  const musicReducer = ( state = initialState, action) => {
   switch (action.type) {
+
     case SET_MUSIC_LINE:
         return {
           lyrics: action.lyrics
@@ -20,7 +21,8 @@ const musicReducer = ( state = initialState, action) => {
       return {...state , music:action.music}
   }
   case SET_MUSIC_FILE:{
-    return {...state , music:action.file}
+console.log(action.musicFile);
+    return {...state , musicFile:action.musicFile}
 }
     default:
         return state
@@ -32,10 +34,10 @@ export let setLyricsData = (lyrics) => {
     lyrics
   }
 }
-export let setFileData = (file) => {
+export let setFileData = (musicFile) => {
   return {
     type: SET_MUSIC_FILE,
-    file
+    musicFile
   }
 }
 export let getMusicData  = (music) => {
@@ -45,10 +47,10 @@ export let getMusicData  = (music) => {
     }
 }
 
-export let getMusicFile  = (file) => {
+export let getMusicFile  = (musicFile) => {
   return {
     type: SET_MUSIC_FILE,
-    file
+    musicFile
 
     }
 }
@@ -59,6 +61,12 @@ export let getMusicFile  = (file) => {
         dispatch(getMusicData(data.result));
   }
 }
+export const saveFile = (file) =>  async (dispatch) => {
+   let data = await soundAPI.saveFile(file);
+   dispatch(setFileData(file));
+   dispatch(getMusicFile(data.result));
+ }
+
 /*
 export const getMusicFromFile = (file) => {
   return async (dispatch) => {

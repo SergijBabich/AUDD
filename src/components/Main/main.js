@@ -6,31 +6,44 @@ import {File} from '../../Utils/formControl.js';
 import MusicData from './MusicData.js';
 import PreLoader from '../preloader/preloader.js';
 import {getMusicFromFile} from '../../REDUX/music_Reducer.js';
+import main from './main.module.css';
+import MusicDataFile from './MusicDataFile.js';
 import {required , maxLengthCreator, minLengthCreator} from '../../Utils/validator.js';
 
  let  value='I was wondering if after all these years';
 class Main  extends React.Component {
   constructor(props) {
       super(props);
-
+      this.inputRef = React.createRef(null);
+      console.log(this.props);
       }
 
 
    getUserLine = (formData) => {
      console.log(formData);
+     console.log(this.props);
      let doneStr = formData.someStr.replace(/ /g, '%20');
      this.props.getMusicFromLyrics(doneStr);
   }
   /*myPostElement =(el, index) =>{
     return <MusicData song_id={this.props.music[index].song_id} />
   }*/
+uploadFile = (e) => {
+  console.log(this.props.musicFile);
+  e.preventDefault();
+  console.log(this.inputRef.current.files[0]);
+this.props.saveFile(this.inputRef.current.files[0]);
+}
+
 render() {
   return (
-    <div>
-
-  
+    <div className={main.container}>
+           Upload file:
+           <input type={"file"}  ref={this.inputRef} />
+           <button className={main.container__button} onClick={this.uploadFile} ></button>
       <MainFormRedux onSubmit={this.getUserLine} />
-    {!this.props.music?  <PreLoader />:  <MusicData music={this.props.music} />}
+    {!this.props.music  ?  <PreLoader />:  <MusicData music={this.props.music} /> }
+    {!this.props.musicFile?  <PreLoader />:  <MusicDataFile musicData = {this.props.musicFile} />}
 
     {/*this.myPostElement*/}
 
@@ -52,7 +65,7 @@ const MainForm = (props) => {
   {/*<Field component={'input'} name={'rememberMe'}  value ='false' type={'checkbox'} />*/}
   </div>
   <div >
-  <button ></button>
+  <button  className={main.container__button}></button>
   </div>
     </form>
     </div>

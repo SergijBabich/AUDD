@@ -1,0 +1,137 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+.container {
+	width: 900px;
+	min-height: 440px;
+  margin: auto;
+  height: auto;
+  border:2px solid red;
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex
+}
+
+.container .media {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  flex-direction: column;
+	flex: 30%;
+}
+.media_img {
+  height: 200px;
+  max-width: 100px;
+}
+.container .media img {
+	border-radius: 5px;
+	width: ;
+}
+
+.container .media .media_item1 {
+	color: grey;
+
+	left: 0;
+	bottom: 185px
+}
+
+.container .media .media_item2 {
+
+	right: 0;
+	bottom: 185px
+}
+
+.container .media .media_item2 a {
+	color: #ac0000;
+	text-decoration: none;
+	cursor: pointer
+}
+
+.container .media .media_item2 a i {
+	margin-left: 10px
+}
+
+.container .content {
+      flex:70%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+}
+
+.container .content h1 {
+	margin-top: 20px;
+	font-weight: 400
+}
+
+.container .content h3 {
+	color: #ac0000;
+	font-weight: 400
+}
+
+.container .content small {
+	color: grey
+}
+
+.container .content a {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	margin-top: 20px;
+	cursor: pointer;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	align-items: center;
+	-webkit-box-pack: center;
+	-ms-flex-pack: center;
+	justify-content: center;
+	border: 2px solid #ac0000;
+	border-radius: 5px;
+	width: 200px;
+	height: 35px;
+	text-decoration: none;
+	color: #ac0000
+}
+
+.container .content a i {
+	margin-left: 10px;
+	-webkit-transform: rotate(-45deg);
+	-ms-transform: rotate(-45deg);
+	transform: rotate(-45deg)
+}
+
+.container .content .contant_song {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	margin: 40px 0 20px 0;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	align-items: center;
+	-webkit-box-pack: justify;
+	-ms-flex-pack: justify;
+	justify-content: space-between;
+	color: #8b8b8b;
+	height: 50px;
+	border-top: 1px solid #afafaf;
+	border-bottom: 1px solid #afafaf
+}
+
+.container .content .contant_release {
+	color: grey;
+	width: 200px
+}
+
+.container .content .contant_release span {
+	color: #5c5c5c
+}
+
+.container .content .contant_release #span {
+	color: #ac0000
+}
+.content_button {
+  width: 30px;
+  height: 30px;
+}
