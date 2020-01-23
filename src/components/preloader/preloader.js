@@ -2,7 +2,7 @@ import React from 'react';
 const PreLoader = (props) => {
   return (
       <div>
-       </div>
+         </div>
   )
 }
 export default PreLoader;

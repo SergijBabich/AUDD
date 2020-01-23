@@ -12,7 +12,10 @@ const instance = axios.create({
 
 export const soundAPI = {
   getMusicFromLyrics(lyrics){
-    return instance.get(`findLyrics/?q=${lyrics}&api_token=${api_token}`).then(response => {
+    let formData = new FormData();
+    formData.append('lyrics', lyrics);
+    formData.set('return','deezer');
+    return instance.get(`findLyrics/?q=${lyrics}&api_token=${api_token}&return=deezer` ).then(response => {
          console.log(response);
            console.log(response.data);
            return response.data;

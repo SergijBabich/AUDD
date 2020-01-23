@@ -10,7 +10,8 @@ return {
   sound: state.sound.lyrics,
   music:state.sound.music,
   file: state.sound.file,
-  musicFile: state.sound.musicFile
+  musicFile: state.sound.musicFile,
+  value: state.sound.value
   }
 }
 /*export const mapDispatchToProps = (dispatch) => {

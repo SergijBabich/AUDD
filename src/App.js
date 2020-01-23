@@ -12,6 +12,7 @@ function App() {
     <div className="App">
     <BrowserRouter>
      <Provider store ={store}>
+
         <Route path='/main'  render= { ()=> {
           return  <React.Suspense>
               <MainContainer />

@@ -5,6 +5,7 @@ import {Input} from '../../Utils/formControl.js';
 import {File} from '../../Utils/formControl.js';
 import MusicData from './MusicData.js';
 import PreLoader from '../preloader/preloader.js';
+import { Redirect } from 'react-router-dom';
 import {getMusicFromFile} from '../../REDUX/music_Reducer.js';
 import main from './main.module.css';
 import MusicDataFile from './MusicDataFile.js';
@@ -25,25 +26,55 @@ class Main  extends React.Component {
      let doneStr = formData.someStr.replace(/ /g, '%20');
      this.props.getMusicFromLyrics(doneStr);
   }
-  /*myPostElement =(el, index) =>{
-    return <MusicData song_id={this.props.music[index].song_id} />
-  }*/
+
 uploadFile = (e) => {
-  console.log(this.props.musicFile);
+  console.log(this.props);
   e.preventDefault();
   console.log(this.inputRef.current.files[0]);
 this.props.saveFile(this.inputRef.current.files[0]);
 }
+  state = {
+    redirect:0
+  }
+  setRedirectToFile = () => {
+
+    this.setState({
+     redirect: 1
+   })
+  }
+  setRedirectToLyrics = () => {
+    this.setState({
+     redirect: 2
+   })
+  }
+  /*
+  setRedirectToFile = () => {
+    this.setState({
+     redirect: true
+   })
+  }
+  renderRedirect = () => {
+      if(this.state.redirect == true) {
+        console.log('eeteryhgfhfg');
+        return <Redirect to='/uploadFile' />
+      }
+    }
+*/
+
 
 render() {
   return (
     <div className={main.container}>
-           Upload file:
-           <input type={"file"}  ref={this.inputRef} />
-           <button className={main.container__button} onClick={this.uploadFile} ></button>
-      <MainFormRedux onSubmit={this.getUserLine} />
-    {!this.props.music  ?  <PreLoader />:  <MusicData music={this.props.music} /> }
-    {!this.props.musicFile?  <PreLoader />:  <MusicDataFile musicData = {this.props.musicFile} />}
+      <button className={main.container__button} onClick={this.setRedirectToFile} >uploadFile</button>
+      <button className={main.container__button} onClick={this.setRedirectToLyrics} >find for line</button>
+          {this.state.redirect ==1? <div> Upload file:
+                                  <input type={"file"}  ref={this.inputRef} />
+                                    <button className={main.container__button} onClick={this.uploadFile} ></button>
+                                    </div>:  <PreLoader />}
+          {this.state.redirect ==2?   <MainFormRedux onSubmit={this.getUserLine} />:<PreLoader /> }
+
+          {!this.props.music? <PreLoader />  :  <MusicData value={this.props.value} music={this.props.music} /> }
+          {!this.props.file? <PreLoader />  :  <MusicDataFile musicData = {this.props.musicFile} />}
 
     {/*this.myPostElement*/}
 
@@ -78,26 +109,5 @@ const MainFormRedux = reduxForm({
  const _onSuccess = data => {
    console.log(data);
  }
- /*
-const ManiFormFile = (props) => {
-    const inputRef = useRef(null);
-const getUserFile = e => {
-  e.preventDefault()
-  console.log(inputRef.current.files[0]);
-  getMusicFromFile(inputRef.current.files[0], _onSuccess);
-    }
-  return  (
-    <div>
-    <form  onSubmit = {getUserFile}>
-   <div>
-   <input type='file' ref={inputRef}  name='musicFile' />
-   </div>
-  <button ></button>
-    </form>
-    </div>
-  )
-}
-
-*/
 
 export default Main;

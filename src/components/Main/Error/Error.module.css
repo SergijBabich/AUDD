@@ -1,0 +1,16 @@
+.container_errors {
+  max-width: 900px;
+  max-height: 300px;
+  padding: 34px;
+  width: 100%;
+  text-align: initial;
+  margin: auto;
+  height: 100%;
+  border: 2px solid #d6c3c3;
+  border-radius: 5px;
+  background-color: #fbf6f6;
+}
+.error_notification {
+ font-size: 17px;
+ font-weight: 500;
+}
