@@ -46,10 +46,10 @@ class MusicData extends  React.Component   {
    let result = null;
    const isBurning = this.state.isBurning;
     if (isBurning === 1) {
-          result =  <div>yes! I win!!</div>
+          result =  <div className={m.music_data_error}>Yes! I won,enjoy listening</div>
         }
     if (isBurning === 2) {
-          result =  <div className={m.music_data_error}>Unfortunately I did not find anything, try changing the line</div>
+          result =  <div className={m.music_data_error}>Congratulations, you won us!</div>
         }
 
   return (

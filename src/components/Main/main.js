@@ -8,7 +8,6 @@ import PreLoader from '../preloader/preloader.js';
 import { Redirect } from 'react-router-dom';
 import {getMusicFromFile} from '../../REDUX/music_Reducer.js';
 import main from './main.module.css';
-import Sidebar from '../sidebar/sidebar.js';
 import MusicDataFile from './MusicDataFile.js';
 import {required , maxLengthCreator, minLengthCreator} from '../../Utils/validator.js';
 
@@ -87,9 +86,6 @@ render() {
 
            {!this.props.music? <PreLoader />  :  <MusicData   value={this.props.value} music={this.props.music} /> }
            {!this.props.file? <PreLoader />  :  <MusicDataFile musicData = {this.props.musicFile} />}
-      </div>
-      <div className={main.sidebar}>
-      <Sidebar  />
       </div>
     </div>
   </div>
