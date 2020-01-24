@@ -4,15 +4,13 @@ const GET_MUSIC_DATA = 'GET-MUSIC-DATA';
 const SET_MUSIC_LINE = 'SET-MUSIC-LINE';
 const SET_MUSIC_FILE = 'SET-MUSIC-FILE';
 const SET_FILE_DATA = 'SET-FILE-DATA';
+
 let initialState = {
   lyrics:null,
   music:null,
   file: null,
   musicFile:null,
-  countWinsUser:null,
-  countWinsProgram:null,
-  value:0
-}
+  }
   const musicReducer = ( state = initialState, action) => {
   switch (action.type) {
 
@@ -23,6 +21,7 @@ let initialState = {
     case GET_MUSIC_DATA:{
       return {...state , music:action.music}
   }
+
   case SET_MUSIC_FILE:{
     return {...state , musicFile:action.musicFile}
 }
@@ -35,6 +34,7 @@ case SET_FILE_DATA: {
         return state
   }
 }
+
 export let setFielData = (file) => {
   return {
     type:SET_FILE_DATA,

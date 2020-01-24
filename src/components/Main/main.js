@@ -8,6 +8,7 @@ import PreLoader from '../preloader/preloader.js';
 import { Redirect } from 'react-router-dom';
 import {getMusicFromFile} from '../../REDUX/music_Reducer.js';
 import main from './main.module.css';
+import Sidebar from '../sidebar/sidebar.js';
 import MusicDataFile from './MusicDataFile.js';
 import {required , maxLengthCreator, minLengthCreator} from '../../Utils/validator.js';
 
@@ -16,12 +17,10 @@ class Main  extends React.Component {
   constructor(props) {
       super(props);
       this.inputRef = React.createRef(null);
-      console.log(this.props);
       }
 
 
    getUserLine = (formData) => {
-     console.log(formData);
      console.log(this.props);
      let doneStr = formData.someStr.replace(/ /g, '%20');
      this.props.getMusicFromLyrics(doneStr);
@@ -32,6 +31,7 @@ uploadFile = (e) => {
   e.preventDefault();
   console.log(this.inputRef.current.files[0]);
 this.props.saveFile(this.inputRef.current.files[0]);
+
 }
   state = {
     redirect:0
@@ -65,20 +65,34 @@ this.props.saveFile(this.inputRef.current.files[0]);
 render() {
   return (
     <div className={main.container}>
-      <button className={main.container__button} onClick={this.setRedirectToFile} >uploadFile</button>
-      <button className={main.container__button} onClick={this.setRedirectToLyrics} >find for line</button>
-          {this.state.redirect ==1? <div> Upload file:
-                                  <input type={"file"}  ref={this.inputRef} />
-                                    <button className={main.container__button} onClick={this.uploadFile} ></button>
+    <div className={main.container_wrapper}>
+    <span class={main.login100_form_title}>
+						Find your song
+					</span>
+    <div className={main.container_wrapper_button}>
+      <button className={main.container__button} onClick={this.setRedirectToFile} >upload File</button>
+      <button className={main.container__button} onClick={this.setRedirectToLyrics} >Send string</button>
+   </div>
+      </div>
+        <div className={main.content}>
+          <div className={main.content_main}>
+           {this.state.redirect ==1? <div className={main.login100_form_upload}>
+                                      <h1 className={main.login100_form_upload__h1}>Upload file:</h1>
+                                      <div className={main.login100_form_upload__form}>
+                                          <input type={"file"} className={main.input100}  ref={this.inputRef} />
+                                          <button className={main.container__button} onClick={this.uploadFile} >send file</button>
+                                      </div>
                                     </div>:  <PreLoader />}
-          {this.state.redirect ==2?   <MainFormRedux onSubmit={this.getUserLine} />:<PreLoader /> }
+           {this.state.redirect ==2?   <MainFormRedux onSubmit={this.getUserLine} />:<PreLoader /> }
 
-          {!this.props.music? <PreLoader />  :  <MusicData value={this.props.value} music={this.props.music} /> }
-          {!this.props.file? <PreLoader />  :  <MusicDataFile musicData = {this.props.musicFile} />}
-
-    {/*this.myPostElement*/}
-
+           {!this.props.music? <PreLoader />  :  <MusicData   value={this.props.value} music={this.props.music} /> }
+           {!this.props.file? <PreLoader />  :  <MusicDataFile musicData = {this.props.musicFile} />}
+      </div>
+      <div className={main.sidebar}>
+      <Sidebar  />
+      </div>
     </div>
+  </div>
   )
 }
 }
@@ -86,17 +100,17 @@ const maxLength20 = maxLengthCreator(100);
 const minLength8 = minLengthCreator(8);
 const MainForm = (props) => {
   return  (
-    <div>
+    <div className={main.string_container}>
     <form  onSubmit = {props.handleSubmit}>
     <div>
-    <Field component={Input}  validate={[required, maxLength20]}  name={'someStr'}  placeholder='Enter your mail' />
+    <Field component={Input}  className={main.string_container__input}  validate={[required, maxLength20]}  name={'someStr'}  placeholder='String from soung' />
    </div>
    <label></label>
   <div>
   {/*<Field component={'input'} name={'rememberMe'}  value ='false' type={'checkbox'} />*/}
   </div>
   <div >
-  <button  className={main.container__button}></button>
+  <button  className={main.container__button}>Send</button>
   </div>
     </form>
     </div>

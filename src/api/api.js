@@ -1,7 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import * as axios from 'axios';
-const api_token ='a6f6d3e01e4af00a80a85915a42b01a5';
+const api_token ='cf27e7e6e5f92baf246fd7ad2a850408';
 /*let  bodyFormData = new FormData();
     bodyFormData.append("file", file);
     bodyFormData.set("api_token", 'e18f6001fd4236175f7dc468d0470702');
@@ -15,7 +15,7 @@ export const soundAPI = {
     let formData = new FormData();
     formData.append('lyrics', lyrics);
     formData.set('return','deezer');
-    return instance.get(`findLyrics/?q=${lyrics}&api_token=${api_token}&return=deezer` ).then(response => {
+    return instance.get(`findLyrics/?q=${lyrics}&api_token=${api_token}` ).then(response => {
          console.log(response);
            console.log(response.data);
            return response.data;
@@ -24,7 +24,7 @@ export const soundAPI = {
   saveFile(file) {
     let formData = new FormData();
     formData.append('file', file);
-    formData.set('api_token','a6f6d3e01e4af00a80a85915a42b01a5');
+    formData.set('api_token','cf27e7e6e5f92baf246fd7ad2a850408');
     formData.set('return','deezer');
     console.log(file);
     return instance.post('', formData,{

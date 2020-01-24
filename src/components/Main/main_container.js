@@ -1,5 +1,4 @@
 import {setLyricsData} from '../../REDUX/music_Reducer.js';
-
 import {connect} from   'react-redux';
 import musicReducer from '../../REDUX/music_Reducer.js';
 import {getMusicFromLyrics} from '../../REDUX/music_Reducer.js';
@@ -11,16 +10,9 @@ return {
   music:state.sound.music,
   file: state.sound.file,
   musicFile: state.sound.musicFile,
-  value: state.sound.value
+  value: state.sound.value,
   }
 }
-/*export const mapDispatchToProps = (dispatch) => {
-  return {
-    getSoundData: (lyrics) => {
-      dispatch(setLyricsData(lyrics));
-    }
-  }
-}*/
 
 const MainContainer = connect(mapStateToProps, {getMusicFromLyrics, saveFile})(Main);
 export default MainContainer;

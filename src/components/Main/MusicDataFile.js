@@ -17,13 +17,8 @@ class MusicDataFile extends  React.Component   {
   }
   /*a = this.props.music[this.state.value].media;
      newArr = JSON.parse(this.a);*/
-
-
   showOtherComponent = () => {
      console.log(this.props);
-
-
-
     if (this.state.value <=5) {
       this.setState({
         value: this.state.value + 1
@@ -35,11 +30,16 @@ class MusicDataFile extends  React.Component   {
     }
 
   }
+  showWin =() => {
+  this.props.countWinsUser++;
+  this.props.getCounts(this.props.countWinsUser);
+  }
 
 
  render() {
   return (
     <> {this.props.musicData == null? <MusicErrorFile />:
+  <div className={m.container_wrapper}>
     <div className={m.container}>
         <div className={m.media}>
          <div className={m.media_img}>
@@ -76,14 +76,15 @@ class MusicDataFile extends  React.Component   {
                 <div>
                   <span id="span">Also Available in iTunes</span>
                 <div className={m.button_container}>
-                  <button  className={m.content_button} onClick={this.showOtherComponent} >Yes </button>
-                  <button  className={m.content_button} onClick={this.showOtherComponent} >No </button>
+                  <button  className={m.content_button}  >Yes </button>
+                  <button  className={m.content_button} >No </button>
                 </div>
                 </div>
 
             </div>
         </div>
-    </div>}</>
+    </div>
+  </div>}</>
   )
  }
 }

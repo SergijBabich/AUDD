@@ -1,11 +1,11 @@
 .container_errors {
   max-width: 900px;
-  max-height: 300px;
+  max-height: 100px;
   padding: 34px;
   width: 100%;
   text-align: initial;
   margin: auto;
-  margin-top: 50px;  
+  margin-top: 50px;
   height: 100%;
   border: 2px solid #d6c3c3;
   border-radius: 5px;

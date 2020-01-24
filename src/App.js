@@ -12,12 +12,18 @@ function App() {
     <div className="App">
     <BrowserRouter>
      <Provider store ={store}>
-
+       <Redirect from="/" to="/main" />
         <Route path='/main'  render= { ()=> {
           return  <React.Suspense>
-              <MainContainer />
+            <div class='app_wrapper'>
+              <div class='app_wrapper_main'>
+                <MainContainer />
+               </div>
+
+            </div>
               </React.Suspense>
         }} />
+
       </Provider>
      </BrowserRouter>
     </div>
