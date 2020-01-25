@@ -23,7 +23,6 @@ function App() {
             </div>
               </React.Suspense>
         }} />
-
       </Provider>
      </BrowserRouter>
     </div>

@@ -24,12 +24,12 @@ let initialState = {
 
   case SET_MUSIC_FILE:{
     return {...state , musicFile:action.musicFile}
-}
-case SET_FILE_DATA: {
-  return {
-    file:action.file
   }
-}
+  case SET_FILE_DATA: {
+    return {
+      file:action.file
+    }
+  }
     default:
         return state
   }
@@ -77,12 +77,4 @@ export const saveFile = (file) => {
  }
 }
 
-/*
-export const getMusicFromFile = (file) => {
-  return async (dispatch) => {
-   let data = await soundFileAPI.getMusicFromFile(file);
-       dispatch(setFileData(file));
-       dispatch(getMusicFile(data.result));
- }
-}*/
 export default musicReducer;

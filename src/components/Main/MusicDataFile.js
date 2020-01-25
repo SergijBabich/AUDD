@@ -2,7 +2,6 @@
 import PreLoader from '../preloader/preloader.js';
 import m from './MusicData.module.css';
 import 'react-h5-audio-player/lib/styles.css';
-import MUSIC from './sergey.mp3';
 import AudioPlayer from "react-h5-audio-player";
 import MusicErrorFile from "./Error/MusicErrorFile.js";
 class MusicDataFile extends  React.Component   {
@@ -15,33 +14,29 @@ class MusicDataFile extends  React.Component   {
   state = {
       value:0
   }
-  /*a = this.props.music[this.state.value].media;
-     newArr = JSON.parse(this.a);*/
-
   showLose = () => {
       this.setState({  isBurning: 0 });
 }
   showWin =() => {
     this.setState({isBurning: 1});
   }
-
  render() {
    let result = null;
    const isBurning = this.state.isBurning;
     if (isBurning === 0) {
-          result =  <div className={m.music_data_error}>Yes! I won,enjoy listening</div>
+          result =  <div className={m.music_data_error}>Congratulations, you won us!</div>
         }
     if (isBurning === 1) {
-          result =  <div className={m.music_data_error}>Congratulations, you won us!</div>
+          result =  <div className={m.music_data_error}>Yes! I won,enjoy listening</div>
         }
 
   return (
     <> {result}
     {this.props.musicData == null? <MusicErrorFile />:
-  <div className={m.container_wrapper}>
-    <div className={m.container}>
-        <div className={m.media}>
-         <div className={m.media_img}>
+        <div className={m.container_wrapper}>
+          <div className={m.container}>
+          <div className={m.media}>
+          <div className={m.media_img}>
             <img src={this.props.musicData.deezer.artist.picture_medium} alt="Song image" />
           </div>
             <div className={m.media_container}>

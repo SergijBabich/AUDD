@@ -20,18 +20,14 @@ class Main  extends React.Component {
 
 
    getUserLine = (formData) => {
-     console.log(this.props);
      let doneStr = formData.someStr.replace(/ /g, '%20');
      this.props.getMusicFromLyrics(doneStr);
   }
 
-uploadFile = (e) => {
-  console.log(this.props);
-  e.preventDefault();
-  console.log(this.inputRef.current.files[0]);
-this.props.saveFile(this.inputRef.current.files[0]);
-
-}
+  uploadFile = (e) => {
+      e.preventDefault();
+      this.props.saveFile(this.inputRef.current.files[0]);
+ }
   state = {
     redirect:0
   }
@@ -46,21 +42,6 @@ this.props.saveFile(this.inputRef.current.files[0]);
      redirect: 2
    })
   }
-  /*
-  setRedirectToFile = () => {
-    this.setState({
-     redirect: true
-   })
-  }
-  renderRedirect = () => {
-      if(this.state.redirect == true) {
-        console.log('eeteryhgfhfg');
-        return <Redirect to='/uploadFile' />
-      }
-    }
-*/
-
-
 render() {
   return (
     <div className={main.container}>
@@ -90,34 +71,30 @@ render() {
     </div>
   </div>
   )
-}
+ }
 }
 const maxLength20 = maxLengthCreator(100);
 const minLength8 = minLengthCreator(8);
 const MainForm = (props) => {
   return  (
     <div className={main.string_container}>
-    <form  onSubmit = {props.handleSubmit}>
-    <div>
-    <Field component={Input}  className={main.string_container__input}  validate={[required, maxLength20]}  name={'someStr'}  placeholder='String from soung' />
-   </div>
-   <label></label>
-  <div>
-  {/*<Field component={'input'} name={'rememberMe'}  value ='false' type={'checkbox'} />*/}
-  </div>
+     <form  onSubmit = {props.handleSubmit}>
+     <div>
+      <Field component={Input}  className={main.string_container__input}  validate={[required, maxLength20]}  name={'someStr'}  placeholder='String from soung' />
+     </div>
+     <label></label>
+   <div>
+ </div>
   <div >
-  <button  className={main.container__button}>Send</button>
+   <button  className={main.container__button}>Send</button>
   </div>
-    </form>
-    </div>
+   </form>
+ </div>
   )
 }
 
 const MainFormRedux = reduxForm({
   form:'postSound'
 })(MainForm)
- const _onSuccess = data => {
-   console.log(data);
- }
 
 export default Main;
