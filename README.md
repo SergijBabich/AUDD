@@ -1,68 +1,25 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-## Available Scripts
-
-In the project directory, you can run:
-
-### `npm start`
-
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+Application Description
+The application implements two ways to search for a song: a line from a song and a file with a small content of this song.
+At the beginning, the user is provided with 2 ways to search for a song.
+ 1 way to upload a file:
+  When you click on a specific “Send File” button, a form appears in the interface for selecting a downloadable file and a “send” button. If the user selects a non-mp3 file, a warning window will appear, with possible reasons why there is no result in searching for a song.
+In case of correct input, a component appears with information about this song, the component stores in itself:
+Title
+Album
+Release date
+Label
+Link to a third-party source for listening
+Link to listening in the audio player on the site
+According to the search result, the user can confirm or disagree with the search result (if the result did not satisfy the user's expectation) In such cases, a component appears with the result
+If the application guessed “Yes! I won, enjoy listening ”if not“ Congratulations, you won us! ”
+At the same time, a search on another file or line will be available.
+2 case, input line:
+The user presses the button “SEND STRING” in the interface a form appears for entering a line from a song and the button “SEND”
+If the user entered a string and the array with options did not come in the response from the server, a component appears with an error and ways to eliminate it. In case of correct input, a component appears with information about this song, the component stores in itself:
+Title
+Artist
+Link to playback in video player.
+Link to a third-party resource.
+A video player can only play video from the YouTube platform, so if there is no such possibility, a warning pops up and a request to follow the link for listening.
+If the response from the server does not contain a link for listening, a component informing about this appears.
+The user can confirm that this is the desired song, in this case a component appears with the inscription “Yes! I won, enjoy listening ”otherwise the application has up to 5 attempts to guess the song, if it does not guess the component with the title“ Congratulations, you won us! ”
