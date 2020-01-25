@@ -1,7 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import * as axios from 'axios';
-const api_token ='cf27e7e6e5f92baf246fd7ad2a850408';
+const api_token ='27a15445523a07975211188c7b894ff7';
 /*let  bodyFormData = new FormData();
     bodyFormData.append("file", file);
     bodyFormData.set("api_token", 'e18f6001fd4236175f7dc468d0470702');
@@ -24,7 +24,7 @@ export const soundAPI = {
   saveFile(file) {
     let formData = new FormData();
     formData.append('file', file);
-    formData.set('api_token','cf27e7e6e5f92baf246fd7ad2a850408');
+    formData.set('api_token','27a15445523a07975211188c7b894ff7');
     formData.set('return','deezer');
     console.log(file);
     return instance.post('', formData,{
