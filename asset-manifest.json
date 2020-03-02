@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "/AUDD/static/css/main.d7de615e.chunk.css",
+    "main.js": "/AUDD/static/js/main.1c6cc907.chunk.js",
+    "main.js.map": "/AUDD/static/js/main.1c6cc907.chunk.js.map",
+    "runtime-main.js": "/AUDD/static/js/runtime-main.b32a98a8.js",
+    "runtime-main.js.map": "/AUDD/static/js/runtime-main.b32a98a8.js.map",
+    "static/css/2.0683c493.chunk.css": "/AUDD/static/css/2.0683c493.chunk.css",
+    "static/js/2.a99f8568.chunk.js": "/AUDD/static/js/2.a99f8568.chunk.js",
+    "static/js/2.a99f8568.chunk.js.map": "/AUDD/static/js/2.a99f8568.chunk.js.map",
+    "index.html": "/AUDD/index.html",
+    "precache-manifest.3291208e7596f1f29a82e1ae4dcfae66.js": "/AUDD/precache-manifest.3291208e7596f1f29a82e1ae4dcfae66.js",
+    "service-worker.js": "/AUDD/service-worker.js",
+    "static/css/2.0683c493.chunk.css.map": "/AUDD/static/css/2.0683c493.chunk.css.map",
+    "static/css/main.d7de615e.chunk.css.map": "/AUDD/static/css/main.d7de615e.chunk.css.map",
+    "static/js/2.a99f8568.chunk.js.LICENSE": "/AUDD/static/js/2.a99f8568.chunk.js.LICENSE",
+    "static/media/logo.svg": "/AUDD/static/media/logo.5d5d9eef.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.b32a98a8.js",
+    "static/css/2.0683c493.chunk.css",
+    "static/js/2.a99f8568.chunk.js",
+    "static/css/main.d7de615e.chunk.css",
+    "static/js/main.1c6cc907.chunk.js"
+  ]
+}
